@@ -4,7 +4,7 @@ public class TimeScale : MonoBehaviour
 {
     public bool TTimeScale;
     public float timeScale;
-    void Start()
+    void Update()
     {
         if(TTimeScale == true)
         {
