@@ -5,12 +5,13 @@ public class AIMovement : MonoBehaviour
     public Transform[] points;
     private int destPoint = 0;
     private NavMeshAgent agent;
+    [SerializeField] private float InitialVelocity;
 
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
+        InitialVelocity = agent.speed;
         // Disabling auto-braking allows for continuous movement
         // between points (ie, the agent doesn't slow down as it
         // approaches a destination point).
@@ -47,7 +48,11 @@ public class AIMovement : MonoBehaviour
         NavMeshHit hit;
         if (NavMesh.SamplePosition(transform.position, out hit, 2.0f, MaintenanceMask))
         {
-            Debug.Log(111111);
+            agent.speed = InitialVelocity / 2;
+        }
+        else
+        {
+            agent.speed = InitialVelocity;
         }
     }
 }
