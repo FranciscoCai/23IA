@@ -6,11 +6,15 @@ public class AIMovement : MonoBehaviour
     private int destPoint = 0;
     private NavMeshAgent agent;
     [SerializeField] private float InitialVelocity;
+    private Animator animator;
 
-
-    void Start()
+    private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+    }
+    void Start()
+    {
         InitialVelocity = agent.speed;
         // Disabling auto-braking allows for continuous movement
         // between points (ie, the agent doesn't slow down as it
@@ -54,5 +58,11 @@ public class AIMovement : MonoBehaviour
         {
             agent.speed = InitialVelocity;
         }
+        animator.SetFloat("Speed", agent.speed);
+        animator.SetBool("OnGorund", IsGrounded());
+    }
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, 1f);
     }
 }
