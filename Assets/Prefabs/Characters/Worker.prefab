@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4429647094997668050}
   - component: {fileID: 2626760131907002220}
   - component: {fileID: 2523586239331618549}
+  - component: {fileID: 6923465440641016890}
   m_Layer: 0
   m_Name: Worker
   m_TagString: Worker
@@ -74,6 +75,28 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   InitialVelocity: 0
+--- !u!95 &6923465440641016890
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448678556563260569}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 9b5e860febdecf54a9b498c3ba643579, type: 3}
+  m_Controller: {fileID: 9100000, guid: aa7b60bf2b306b24fb912cea2ef0939c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &4884593718962560650
 PrefabInstance:
   m_ObjectHideFlags: 0
