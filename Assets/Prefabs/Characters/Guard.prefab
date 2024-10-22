@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4429647094997668050}
   - component: {fileID: 5655369596440718880}
-  - component: {fileID: 994165224005009451}
+  - component: {fileID: 6408137745912443441}
   - component: {fileID: 5284340141333411305}
   m_Layer: 0
   m_Name: Guard
@@ -57,24 +57,29 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 15
   m_ObstacleAvoidanceType: 4
---- !u!114 &994165224005009451
-MonoBehaviour:
+--- !u!136 &6408137745912443441
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448678556563260569}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 227bb75cd97adb041a0850ecc6df70c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  InitialVelocity: 0
+  serializedVersion: 2
+  m_Radius: 1.3
+  m_Height: 5.51
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &5284340141333411305
 Animator:
   serializedVersion: 7

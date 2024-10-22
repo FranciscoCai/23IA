@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4429647094997668050}
   - component: {fileID: 2626760131907002220}
-  - component: {fileID: 2523586239331618549}
+  - component: {fileID: 7797951755723539161}
   - component: {fileID: 6923465440641016890}
   m_Layer: 0
   m_Name: Worker
@@ -57,24 +57,29 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
---- !u!114 &2523586239331618549
-MonoBehaviour:
+--- !u!136 &7797951755723539161
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448678556563260569}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 227bb75cd97adb041a0850ecc6df70c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  InitialVelocity: 0
+  serializedVersion: 2
+  m_Radius: 1.3
+  m_Height: 5.51
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &6923465440641016890
 Animator:
   serializedVersion: 7

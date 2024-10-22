@@ -42,12 +42,15 @@ public class Search_Thief : StateMachineBehaviour
         if (Physics.Raycast(m_Thief.transform.position + Vector3.up, m_Thief.transform.forward, out physicsHit, 10f))
         {
             Debug.DrawRay(m_Thief.transform.position + Vector3.up, m_Thief.transform.TransformDirection(Vector3.forward) * 10, Color.red);
+            if(physicsHit.collider.gameObject.CompareTag("Worker"))
+            {
+                animator.SetTrigger("T_Flee");
+            }
         }
         else
         {
             Debug.DrawRay(m_Thief.transform.position + Vector3.up, m_Thief.transform.TransformDirection(Vector3.forward) * 10, Color.green);
         }
-        Debug.Log(m_Thief.transform.forward);
     }
 
     void GotoNextPoint()
