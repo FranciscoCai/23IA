@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5492709348026113051}
   - component: {fileID: 6422263721888159516}
   - component: {fileID: -9117259893518866681}
+  - component: {fileID: -4170085828706303106}
   m_Layer: 0
   m_Name: Gun_Pistol
   m_TagString: Untagged
@@ -132,6 +133,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &-4170085828706303106
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2286937223025033550}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.32941663, y: 0.54285717, z: 0.87413204}
+  m_Center: {x: -0.037819177, y: 0.027341232, z: 0.2705968}
 --- !u!1 &5268941868645623306
 GameObject:
   m_ObjectHideFlags: 0

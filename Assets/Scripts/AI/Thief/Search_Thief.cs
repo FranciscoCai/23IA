@@ -44,7 +44,7 @@ public class Search_Thief : StateMachineBehaviour
             Debug.DrawRay(m_Thief.transform.position + Vector3.up, m_Thief.transform.TransformDirection(Vector3.forward) * 10, Color.red);
             if(physicsHit.collider.gameObject.CompareTag("Worker"))
             {
-                animator.SetTrigger("T_Flee");
+                animator.SetTrigger("T_Hide");
             }
         }
         else

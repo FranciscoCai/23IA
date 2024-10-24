@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6578087059167918645}
   - component: {fileID: 5479051307263390474}
   - component: {fileID: -5326663934234107112}
+  - component: {fileID: 6859804068677340773}
   m_Layer: 0
   m_Name: Gun_Rifle
   m_TagString: Untagged
@@ -132,6 +133,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &6859804068677340773
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396585485904525118}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.32941663, y: 0.5363724, z: 1.6516036}
+  m_Center: {x: -0.037819177, y: -0.003916338, z: 0.3051508}
 --- !u!1 &9200510123144631641
 GameObject:
   m_ObjectHideFlags: 0
