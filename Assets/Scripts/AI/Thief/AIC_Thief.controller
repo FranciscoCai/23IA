@@ -11,13 +11,13 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -2231485921858614177}
-    m_Position: {x: 300, y: 120, z: 0}
+    m_Position: {x: 300, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6254007562485221471}
-    m_Position: {x: 610, y: 20, z: 0}
+    m_Position: {x: 620, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2724940422062566409}
-    m_Position: {x: 610, y: 120, z: 0}
+    m_Position: {x: 620, y: 10, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354fe4c8e9b5eb143a1d78561cb10707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_WaitTime: 5
 --- !u!1102 &-2724940422062566409
 AnimatorState:
   serializedVersion: 6
@@ -50,7 +51,8 @@ AnimatorState:
   m_Name: Hide
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: []
+  m_Transitions:
+  - {fileID: 97413628829377971}
   m_StateMachineBehaviours:
   - {fileID: -3107679356983832875}
   m_Position: {x: 50, y: 50, z: 0}
@@ -79,6 +81,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753d5ae76069d03469a1172cc3aa14f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Points: []
+  m_DestPoint: 0
+  m_InitialVelocity: 3.5
+  m_ViewGuard: {fileID: 0}
 --- !u!1102 &-2231485921858614177
 AnimatorState:
   serializedVersion: 6
@@ -192,6 +198,68 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1101 &97413628829377971
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: T_Hide
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -2231485921858614177}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &488394072782585852
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: T_Flee
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -2231485921858614177}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!114 &779321125646163740
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4771afcdfe9f9479f5d2dc695da4af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1102 &6254007562485221471
 AnimatorState:
   serializedVersion: 6
@@ -202,8 +270,10 @@ AnimatorState:
   m_Name: Flee
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
+  m_Transitions:
+  - {fileID: 488394072782585852}
+  m_StateMachineBehaviours:
+  - {fileID: 779321125646163740}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
