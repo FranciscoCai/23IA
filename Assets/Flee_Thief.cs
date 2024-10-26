@@ -50,7 +50,14 @@ public class Flee_Thief : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        if ((animator.GetBehaviours<Search_Thief>()[0].m_DestPoint - 1) < 0)
+        {
+            animator.GetBehaviours<Search_Thief>()[0].m_DestPoint = animator.GetBehaviours<Search_Thief>()[0].m_Points.Length;
+        }
+        else
+        {
+            animator.GetBehaviours<Search_Thief>()[0].m_DestPoint -= 1;
+        }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
