@@ -58,7 +58,7 @@ public class Hide_Thief : StateMachineBehaviour
     {
         if ((animator.GetBehaviours<Search_Thief>()[0].m_DestPoint -1)<0)
         {
-            animator.GetBehaviours<Search_Thief>()[0].m_DestPoint = animator.GetBehaviours<Search_Thief>()[0].m_Points.Length;
+            animator.GetBehaviours<Search_Thief>()[0].m_DestPoint = animator.GetBehaviours<Search_Thief>()[0].m_Points.Length-1;
         }
         else
         {

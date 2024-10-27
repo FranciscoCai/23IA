@@ -143,6 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e168cdafc37d0ab4083ef9a240d23ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Points: []
+  m_DestPoint: 0
+  m_RaycastNumber: 18
+  m_RaycastDIstance: 5
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -238,7 +242,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Points: []
   m_DestPoint: 0
-  m_ViewGuard: {fileID: 0}
   m_Wait: 0
 --- !u!1102 &8806252413964311659
 AnimatorState:

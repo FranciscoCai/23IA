@@ -24,13 +24,14 @@ public class Posing_Worker : StateMachineBehaviour
     {
         if (!m_Agent.pathPending && m_Agent.remainingDistance < 0.5f && m_Wait == false)
         {
+            Debug.Log(111);
             GotoNextPoint(1);
             animator.GetComponent<AIData_Worker>().StartCoroutine(Wait());
         }
         RaycastHit physicsHit;
         if (Physics.Raycast(m_Worker.transform.position + Vector3.up, m_Worker.transform.forward, out physicsHit, 5f))
         {
-            Debug.DrawRay(m_Worker.transform.position + Vector3.up, m_Worker.transform.TransformDirection(Vector3.forward) * 5, Color.red);
+            Debug.DrawRay(m_Worker.transform.position + Vector3.up, m_Worker.transform.TransformDirection(Vector3.forward) * 5f, Color.red);
             if (physicsHit.collider.gameObject.CompareTag("Thief"))
             {
                 animator.SetTrigger("T_Flee");
@@ -38,7 +39,7 @@ public class Posing_Worker : StateMachineBehaviour
         }
         else
         {
-            Debug.DrawRay(m_Worker.transform.position + Vector3.up, m_Worker.transform.TransformDirection(Vector3.forward) * 5, Color.green);
+            Debug.DrawRay(m_Worker.transform.position + Vector3.up, m_Worker.transform.TransformDirection(Vector3.forward) * 5f, Color.green);
         }
     }
 

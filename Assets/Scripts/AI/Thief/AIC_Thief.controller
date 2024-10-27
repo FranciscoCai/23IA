@@ -85,6 +85,7 @@ MonoBehaviour:
   m_DestPoint: 0
   m_InitialVelocity: 3.5
   m_ViewGuard: {fileID: 0}
+  m_Wait: 0
 --- !u!1102 &-2231485921858614177
 AnimatorState:
   serializedVersion: 6
