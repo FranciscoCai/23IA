@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2626760131907002220}
   - component: {fileID: 7797951755723539161}
   - component: {fileID: 6923465440641016890}
+  - component: {fileID: 4455075379048269356}
   m_Layer: 0
   m_Name: Worker
   m_TagString: Worker
@@ -90,7 +91,7 @@ Animator:
   m_GameObject: {fileID: 448678556563260569}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 819a91db27b775645a8b0e1917087244, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6e6029d6d9128c646bdb308e70495810, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -102,6 +103,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4455075379048269356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448678556563260569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6bfd22f591beef4c9f4e18feaea4b1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: []
 --- !u!1001 &4884593718962560650
 PrefabInstance:
   m_ObjectHideFlags: 0
