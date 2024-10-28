@@ -24,7 +24,6 @@ public class Posing_Worker : StateMachineBehaviour
     {
         if (!m_Agent.pathPending && m_Agent.remainingDistance < 0.5f && m_Wait == false)
         {
-            Debug.Log(111);
             GotoNextPoint(1);
             animator.GetComponent<AIData_Worker>().StartCoroutine(Wait());
         }

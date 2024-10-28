@@ -5,7 +5,6 @@ using static UnityEngine.UI.Image;
 public class Affraid_Worker : StateMachineBehaviour
 {
     private GameObject m_Worker;
-    public Transform[] m_Points;
     private NavMeshAgent m_Agent;
     public int m_DestPoint = 0;
     [SerializeField] float m_RaycastNumber = 18f;
@@ -14,7 +13,6 @@ public class Affraid_Worker : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_Worker = animator.gameObject;
-        m_Points = m_Worker.GetComponent<AIData_Worker>().points;
         m_Agent = m_Worker.GetComponent<NavMeshAgent>();
     }
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

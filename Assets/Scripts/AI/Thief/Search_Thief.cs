@@ -30,8 +30,8 @@ public class Search_Thief : StateMachineBehaviour
             animator.GetComponent<AIData_Thief>().StartCoroutine(Wait());
         }
         int MaintenanceMask = 1 << NavMesh.GetAreaFromName("Maintenance");
-        UnityEngine.AI.NavMeshHit hit;
-        if (UnityEngine.AI.NavMesh.SamplePosition(m_Thief.transform.position, out hit, 2.0f, MaintenanceMask))
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(m_Thief.transform.position, out hit, 2.0f, MaintenanceMask))
         {
             m_Agent.speed = m_InitialVelocity / 2;
         }
