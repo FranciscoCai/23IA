@@ -8,7 +8,7 @@ public class Search_Thief : StateMachineBehaviour
     public Transform[] m_Points;
     private NavMeshAgent m_Agent;
     public int m_DestPoint = 0;
-    [SerializeField] private float m_InitialVelocity;
+    public float m_InitialVelocity;
 
     public GameObject m_ViewGuard;
     public bool m_Wait = false;

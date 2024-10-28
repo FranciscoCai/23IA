@@ -26,6 +26,16 @@ public class Flee_Thief : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        int MaintenanceMask = 1 << NavMesh.GetAreaFromName("Maintenance");
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(m_Thief.transform.position, out hit, 2.0f, MaintenanceMask))
+        {
+            m_Agent.speed = animator.GetBehaviours<Search_Thief>()[0].m_InitialVelocity / 2;
+        }
+        else
+        {
+            m_Agent.speed = animator.GetBehaviours<Search_Thief>()[0].m_InitialVelocity;
+        }
         Vector3 directionToGurad = m_Thief.transform.position - animator.GetBehaviours<Search_Thief>()[0].m_ViewGuard.transform.position;
         Vector3 fleePosition = m_Thief.transform.position + directionToGurad.normalized * 10f;
         if (Vector3.Distance(m_Thief.transform.position, animator.GetBehaviours<Search_Thief>()[0].m_ViewGuard.transform.position)<10f)
@@ -34,11 +44,11 @@ public class Flee_Thief : StateMachineBehaviour
         }
         if (!m_Agent.pathPending && m_Agent.remainingDistance < 0.5f)
         {
-            animator.SetTrigger("T_Flee");
+            animator.SetTrigger("T_Search");
         }
         foreach (NavMeshObstacle Obstacle in m_NavObstacleTarget)
         {
-            if (Vector3.Distance(Obstacle.gameObject.transform.position, m_Thief.transform.position) < 2f)
+            if (Vector3.Distance(Obstacle.gameObject.transform.position, m_Thief.transform.position) < 1f)
             {
                 Rigidbody rb = Obstacle.gameObject.GetComponent<Rigidbody>();
                 Vector3 directionToTarget = Obstacle.transform.position - m_Thief.transform.position;
