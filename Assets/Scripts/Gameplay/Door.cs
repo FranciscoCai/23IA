@@ -14,6 +14,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(1111);
         if (!Enabled)
         {
             return;
