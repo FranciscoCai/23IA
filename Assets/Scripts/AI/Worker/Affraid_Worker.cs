@@ -22,7 +22,6 @@ public class Affraid_Worker : StateMachineBehaviour
             return;
         }
 
-        Debug.Log(hits[0]);
         for (int i = 0; i < hits.Length; i++) 
         {
            if( hits[i].collider.CompareTag("Guard"))
