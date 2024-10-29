@@ -16,20 +16,17 @@ public class Affraid_Worker : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        RaycastHit[] hits = Physics.SphereCastAll(m_Worker.transform.position, m_RaycastDistance, Vector3.up*0.00001f);
+        RaycastHit[] hits = Physics.SphereCastAll(m_Worker.transform.position, m_RaycastDistance, Vector3.up,0.01f);
+        if (hits == null)
+        {
+            return;
+        }
+
         Debug.Log(hits[0]);
         for (int i = 0; i < hits.Length; i++) 
         {
            if( hits[i].collider.CompareTag("Guard"))
             {
-                if ((animator.GetBehaviours<Posing_Worker>()[0].m_DestPoint - 1) < 0)
-                {
-                    animator.GetBehaviours<Posing_Worker>()[0].m_DestPoint = animator.GetBehaviours<Posing_Worker>()[0].m_Points.Length - 1;
-                }
-                else
-                {
-                    animator.GetBehaviours<Posing_Worker>()[0].m_DestPoint -= 1;
-                }
                 animator.SetTrigger("T_Posing");
             }
 

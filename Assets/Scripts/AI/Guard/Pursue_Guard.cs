@@ -28,10 +28,6 @@ public class Pursue_Guard : StateMachineBehaviour
             {
                 m_LastPosition = physicsHit.collider.gameObject.transform.position;
                 m_Agent.SetDestination(physicsHit.collider.gameObject.transform.position);
-                if ((Vector3.Distance(physicsHit.collider.gameObject.transform.position, m_Guard.transform.position)<1f))
-                {
-                    animator.SetTrigger("T_Attack");
-                }
             }
             else
             {

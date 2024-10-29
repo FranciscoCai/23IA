@@ -17,6 +17,7 @@ public class Posing_Worker : StateMachineBehaviour
         m_Points = m_Worker.GetComponent<AIData_Worker>().points;
         m_Agent = m_Worker.GetComponent<NavMeshAgent>();
         m_Agent.autoBraking = false;
+        m_Agent.destination = m_Points[m_DestPoint].position;
     }
 
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -46,8 +47,8 @@ public class Posing_Worker : StateMachineBehaviour
     {
         if (m_Points.Length == 0)
             return;
-        m_Agent.destination = m_Points[m_DestPoint].position;
         m_DestPoint = (m_DestPoint + addDestination) % m_Points.Length;
+        m_Agent.destination = m_Points[m_DestPoint].position;
         // Choose the next point in the array as the destination,
         // cycling to the start if necessary.
     }
