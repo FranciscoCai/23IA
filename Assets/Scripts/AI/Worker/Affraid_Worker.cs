@@ -6,7 +6,6 @@ public class Affraid_Worker : StateMachineBehaviour
 {
     private GameObject m_Worker;
     private NavMeshAgent m_Agent;
-    public int m_DestPoint = 0;
     [SerializeField] float m_RaycastDistance = 5f;
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -17,7 +16,8 @@ public class Affraid_Worker : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        RaycastHit[] hits = Physics.SphereCastAll(m_Worker.transform.position, m_RaycastDistance, Vector3.zero);
+        RaycastHit[] hits = Physics.SphereCastAll(m_Worker.transform.position, m_RaycastDistance, Vector3.up*0.00001f);
+        Debug.Log(hits[0]);
         for (int i = 0; i < hits.Length; i++) 
         {
            if( hits[i].collider.CompareTag("Guard"))

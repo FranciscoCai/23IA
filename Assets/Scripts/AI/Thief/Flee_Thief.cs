@@ -36,6 +36,8 @@ public class Flee_Thief : StateMachineBehaviour
         {
             m_Agent.speed = animator.GetBehaviours<Search_Thief>()[0].m_InitialVelocity;
         }
+
+        //Parte de escapar del guardia
         Vector3 directionToGurad = m_Thief.transform.position - animator.GetBehaviours<Search_Thief>()[0].m_ViewGuard.transform.position;
         Vector3 fleePosition = m_Thief.transform.position + directionToGurad.normalized * 10f;
         if (Vector3.Distance(m_Thief.transform.position, animator.GetBehaviours<Search_Thief>()[0].m_ViewGuard.transform.position)<10f)
@@ -46,6 +48,8 @@ public class Flee_Thief : StateMachineBehaviour
         {
             animator.SetTrigger("T_Search");
         }
+
+        //Parte de obstaculo empuje
         foreach (NavMeshObstacle Obstacle in m_NavObstacleTarget)
         {
             if (Vector3.Distance(Obstacle.gameObject.transform.position, m_Thief.transform.position) < 1f)
