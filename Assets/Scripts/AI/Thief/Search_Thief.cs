@@ -24,7 +24,7 @@ public class Search_Thief : StateMachineBehaviour
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (!m_Agent.pathPending && m_Agent.remainingDistance < 0.5f && m_Wait== false)
+        if (!m_Agent.pathPending && m_Agent.remainingDistance < 0.25f && m_Wait== false)
         {
             GotoNextPoint(1);
             animator.GetComponent<AIData_Thief>().StartCoroutine(Wait());
