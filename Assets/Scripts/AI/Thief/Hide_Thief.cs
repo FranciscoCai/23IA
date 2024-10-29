@@ -14,19 +14,9 @@ public class Hide_Thief : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        int MaintenanceMask = 1 << NavMesh.GetAreaFromName("Maintenance");
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(m_Thief.transform.position, out hit, 2.0f, MaintenanceMask))
-        {
-            m_Agent.speed = animator.GetBehaviours<Search_Thief>()[0].m_InitialVelocity / 2;
-        }
-        else
-        {
-            m_Agent.speed = animator.GetBehaviours<Search_Thief>()[0].m_InitialVelocity;
-        }
-
         m_Thief = animator.gameObject;
         m_Agent = m_Thief.GetComponent<UnityEngine.AI.NavMeshAgent>();
+
         m_LinkTarget = FindObjectsByType<NavMeshLink>(FindObjectsSortMode.None);
         float distance = 0;
         Vector3 destination = Vector3.zero;
@@ -50,6 +40,16 @@ public class Hide_Thief : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        int MaintenanceMask = 1 << NavMesh.GetAreaFromName("Maintenance");
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(m_Thief.transform.position, out hit, 2.0f, MaintenanceMask))
+        {
+            m_Agent.speed = animator.GetBehaviours<Search_Thief>()[0].m_InitialVelocity / 2;
+        }
+        else
+        {
+            m_Agent.speed = animator.GetBehaviours<Search_Thief>()[0].m_InitialVelocity;
+        }
         if (!m_Agent.pathPending && m_Agent.remainingDistance < 0.1f && !isCoroutineRunning)
         {
             isCoroutineRunning = true;
