@@ -23,11 +23,15 @@ public class Pursue_Guard : StateMachineBehaviour
         RaycastHit physicsHit;
         if (Physics.Raycast(m_Guard.transform.position + Vector3.up, m_Guard.transform.forward, out physicsHit, 10f))
         {
-            Debug.DrawRay(m_Guard.transform.position + Vector3.up, m_Guard.transform.TransformDirection(Vector3.forward) * 10, Color.red);
+            //Debug.DrawRay(m_Guard.transform.position + Vector3.up, m_Guard.transform.TransformDirection(Vector3.forward) * 10, Color.red);
             if (physicsHit.collider.gameObject.CompareTag("Thief"))
             {
                 m_LastPosition = physicsHit.collider.gameObject.transform.position;
                 m_Agent.SetDestination(physicsHit.collider.gameObject.transform.position);
+                if ((Vector3.Distance(physicsHit.collider.gameObject.transform.position, m_Guard.transform.position)<1f))
+                {
+                    animator.SetTrigger("T_Attack");
+                }
             }
             else
             {
@@ -38,6 +42,14 @@ public class Pursue_Guard : StateMachineBehaviour
         {
             animator.SetTrigger("T_Seek");
             Debug.DrawRay(m_Guard.transform.position + Vector3.up, m_Guard.transform.TransformDirection(Vector3.forward) * 10, Color.green);
+        }
+        if (Physics.Raycast(m_Guard.transform.position + Vector3.up, m_Guard.transform.forward, out physicsHit, 1f))
+        {
+            //Debug.DrawRay(m_Guard.transform.position + Vector3.up, m_Guard.transform.TransformDirection(Vector3.forward) * 10, Color.red);
+            if (physicsHit.collider.gameObject.CompareTag("Thief"))
+            {
+                animator.SetTrigger("T_Attack");
+            }
         }
     }
 
