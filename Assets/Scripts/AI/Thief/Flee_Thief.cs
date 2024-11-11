@@ -18,7 +18,6 @@ public class Flee_Thief : StateMachineBehaviour
         m_Agent = m_Thief.GetComponent<UnityEngine.AI.NavMeshAgent>();
         m_LinkTarget = FindObjectsByType<NavMeshLink>(FindObjectsSortMode.None);
         m_NavObstacleTarget = FindObjectsByType<NavMeshObstacle>(FindObjectsSortMode.None);
-        m_NavObstacleTarget = FindObjectsByType<NavMeshObstacle>(FindObjectsSortMode.None);
 
         // Mover el agente hacia la posici¨®n de escape
     }
