@@ -10,23 +10,7 @@ public class Warning_Worker : StateMachineBehaviour
     {
         m_Worker = animator.gameObject;
         m_Agent = m_Worker.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        float distance = 0;
-        //aidirctor.instance.closest(animator.trans.pos);
-        Vector3 destination = Vector3.zero;
-        for (int i = 0; i < AIDirector.instance.A_alarmTransform.Length; i++)
-        {
-            float actualDistance = Vector3.Distance(AIDirector.instance.A_alarmTransform[i].transform.position, m_Worker.transform.position);
-            if (distance == 0)
-            {
-                distance = actualDistance;
-                destination = AIDirector.instance.A_alarmTransform[i].transform.position;
-            }
-            else if (actualDistance <= distance)
-            {
-                distance = actualDistance;
-                destination = AIDirector.instance.A_alarmTransform[i].transform.position;
-            }
-        }
+        Vector3 destination = AIDirector.instance.WorkerClosePoint(m_Worker.transform,AIDirector.instance.A_alarmTransform);
         m_Agent.SetDestination(destination);
     }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

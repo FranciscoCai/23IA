@@ -45177,6 +45177,12 @@ MonoBehaviour:
   - {fileID: 574207488}
   - {fileID: 872240017}
   - {fileID: 1574688952}
+  A_groupingsPoints:
+  - {fileID: 332432602}
+  - {fileID: 337027769}
+  - {fileID: 1649222996}
+  - {fileID: 1192171219}
+  - {fileID: 1307133207}
 --- !u!4 &1281901802
 Transform:
   m_ObjectHideFlags: 0

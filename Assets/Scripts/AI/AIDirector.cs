@@ -1,10 +1,13 @@
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
+
 public class AIDirector : MonoBehaviour
 {
     public static AIDirector instance;
     public Transform[] A_alarmTransform;
+    public Transform[] A_groupingsPoints;
     private void Awake()
     {
         if (instance == null)
@@ -28,5 +31,25 @@ public class AIDirector : MonoBehaviour
         {
             worker2.GetComponent<Animator>().SetTrigger("T_Alarm");
         }
+    }
+    public Vector3 WorkerClosePoint(Transform agent, Transform[] points)
+    {
+        float distance = 0;
+        Vector3 destination = Vector3.zero;
+        for (int i = 0; i < points.Length; i++)
+        {
+            float actualDistance = Vector3.Distance(points[i].transform.position, agent.transform.position);
+            if (distance == 0)
+            {
+                distance = actualDistance;
+                destination = points[i].transform.position;
+            }
+            else if (actualDistance <= distance)
+            {
+                distance = actualDistance;
+                destination = points[i].transform.position;
+            }
+        }
+        return destination;
     }
 }

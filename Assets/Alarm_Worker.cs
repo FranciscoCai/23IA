@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class Alarm_Worker : StateMachineBehaviour
 {
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    private GameObject m_Worker;
+    private UnityEngine.AI.NavMeshAgent m_Agent;
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        m_Worker = animator.gameObject;
+        m_Agent = m_Worker.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        Vector3 destination = AIDirector.instance.WorkerClosePoint(m_Worker.transform, AIDirector.instance.A_groupingsPoints);
+        m_Agent.SetDestination(destination);
+    }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
