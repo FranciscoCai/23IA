@@ -18,7 +18,7 @@ public class Hide_Thief : StateMachineBehaviour
         m_Agent = m_Thief.GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         m_LinkTarget = FindObjectsByType<NavMeshLink>(FindObjectsSortMode.None);
-        Vector3 destination = AIDirector.instance.WorkerClosePoint(m_Thief.transform, AIDirector.instance.A_thiefHidePoints);
+        Vector3 destination = AIDirector.instance.ClosestHide(m_Thief.transform.position);
         m_Agent.SetDestination(destination);
     }
 

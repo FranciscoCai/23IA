@@ -16,7 +16,7 @@ public class Search_Thief : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_Thief = animator.gameObject;
-        m_Points = m_Thief.GetComponent<AIData_Thief>().points;
+        m_Points = AIDirector.instance.GetSearchPoints();
         m_Agent = m_Thief.GetComponent<NavMeshAgent>();
         m_Agent.autoBraking = false;
         m_Agent.destination = m_Points[m_DestPoint].position;

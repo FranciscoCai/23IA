@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Warning_Worker : StateMachineBehaviour
 {
@@ -10,7 +11,7 @@ public class Warning_Worker : StateMachineBehaviour
     {
         m_Worker = animator.gameObject;
         m_Agent = m_Worker.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        Vector3 destination = AIDirector.instance.WorkerClosePoint(m_Worker.transform,AIDirector.instance.A_alarmTransform);
+        Vector3 destination = AIDirector.instance.ClosestWarning(m_Worker.transform.position);
         m_Agent.SetDestination(destination);
     }
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

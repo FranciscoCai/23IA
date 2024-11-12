@@ -8,6 +8,11 @@ TagManager:
   - Thief
   - Worker
   - Guard
+  - AlarmP
+  - GroupP
+  - ThiefHideP
+  - ThiefSearchP
+  - WorkerPosingP
   layers:
   - Default
   - TransparentFX

@@ -8,7 +8,7 @@ public class Alarm_Worker : StateMachineBehaviour
     {
         m_Worker = animator.gameObject;
         m_Agent = m_Worker.GetComponent<UnityEngine.AI.NavMeshAgent>();
-        Vector3 destination = AIDirector.instance.WorkerClosePoint(m_Worker.transform, AIDirector.instance.A_groupingsPoints);
+        Vector3 destination = AIDirector.instance.ClosestAlarm(m_Worker.transform.position);
         m_Agent.SetDestination(destination);
     }
 
