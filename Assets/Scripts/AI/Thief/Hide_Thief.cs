@@ -18,22 +18,7 @@ public class Hide_Thief : StateMachineBehaviour
         m_Agent = m_Thief.GetComponent<UnityEngine.AI.NavMeshAgent>();
 
         m_LinkTarget = FindObjectsByType<NavMeshLink>(FindObjectsSortMode.None);
-        float distance = 0;
-        Vector3 destination = Vector3.zero;
-        for (int i = 0; i < m_LinkTarget.Length; i++)
-        {
-            float actualDistance = Vector3.Distance(m_LinkTarget[i].transform.TransformPoint(m_LinkTarget[i].endPoint), m_Thief.transform.position);
-            if (distance == 0)
-            {
-                distance = actualDistance;
-                destination = m_LinkTarget[i].transform.TransformPoint(m_LinkTarget[i].endPoint);
-            }
-            else if (actualDistance <= distance)
-            {
-                distance = actualDistance;
-                destination = m_LinkTarget[i].transform.TransformPoint(m_LinkTarget[i].endPoint);
-            }
-        }
+        Vector3 destination = AIDirector.instance.WorkerClosePoint(m_Thief.transform, AIDirector.instance.A_thiefHidePoints);
         m_Agent.SetDestination(destination);
     }
 

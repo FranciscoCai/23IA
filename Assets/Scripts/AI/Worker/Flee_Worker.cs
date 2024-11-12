@@ -14,22 +14,7 @@ public class Flee_Worker : StateMachineBehaviour
         m_Worker = animator.gameObject;
         m_groupingsPoints = m_Worker.GetComponent<AIData_Worker>().groupingsPoints;
         m_Agent = m_Worker.GetComponent<NavMeshAgent>();
-        float distance = 0;
-        Vector3 destination = Vector3.zero;
-        for (int i = 0; i < m_groupingsPoints.Length; i++)
-        {
-            float actualDistance = Vector3.Distance(m_groupingsPoints[i].transform.position, m_Worker.transform.position);
-            if (distance == 0)
-            {
-                distance = actualDistance;
-                destination = m_groupingsPoints[i].transform.position;
-            }
-            else if (actualDistance <= distance)
-            {
-                distance = actualDistance;
-                destination = m_groupingsPoints[i].transform.position;
-            }
-        }
+        Vector3 destination = AIDirector.instance.WorkerClosePoint(m_Worker.transform, AIDirector.instance.A_thiefHidePoints);
         m_Agent.SetDestination(destination);
     }
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -8,6 +8,7 @@ public class AIDirector : MonoBehaviour
     public static AIDirector instance;
     public Transform[] A_alarmTransform;
     public Transform[] A_groupingsPoints;
+    public Transform[] A_thiefHidePoints;
     private void Awake()
     {
         if (instance == null)
