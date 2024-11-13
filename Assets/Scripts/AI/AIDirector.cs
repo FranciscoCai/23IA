@@ -7,15 +7,18 @@ using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public class AIDirector : MonoBehaviour
 {
-    public static AIDirector instance;
-    public GameObject[] A_alarmTransform;
-    public GameObject[] A_groupingsPoints;
-    public GameObject[] A_thiefHidePoints;
-    public GameObject[] A_thiefSearchPoints;
-    public GameObject[] A_workerPosingPoints;
 
-    GameObject[] A_workers;
-    GameObject[] A_thiefs;
+    public static AIDirector instance;
+    private GameObject[] A_alarmTransform;
+    private GameObject[] A_groupingsPoints;
+    private GameObject[] A_thiefHidePoints;
+    private GameObject[] A_thiefSearchPoints;
+    private GameObject[] A_workerPosingPoints;
+
+    private GameObject[] A_workers;
+    private GameObject[] A_thiefs;
+    private GameObject[] A_guards;
+    private Transform A_thiefFinalPosition;
     private void Awake()
     {
         if (instance == null)
@@ -36,6 +39,11 @@ public class AIDirector : MonoBehaviour
         A_workerPosingPoints = GameObject.FindGameObjectsWithTag("WorkerPosingP");
         A_workers = GameObject.FindGameObjectsWithTag("Worker");
         A_thiefs = GameObject.FindGameObjectsWithTag("Thief");
+        A_guards = GameObject.FindGameObjectsWithTag("Guard");
+    }
+    public void ThiefFinalPosition(Transform position)
+    {
+        A_thiefFinalPosition = position;
     }
     public Transform[] GetSearchPoints()
     {
@@ -67,6 +75,10 @@ public class AIDirector : MonoBehaviour
         {
             thiefs.GetComponent<Animator>().SetTrigger("T_Alarm");
             thiefs.GetComponent<Animator>().SetBool("T_OnAlarm", true);
+        }
+        foreach (GameObject guards in A_guards)
+        {
+            guards.GetComponent<Animator>().SetTrigger("T_Alarm");
         }
         StartCoroutine(CdAlarm());
     }
