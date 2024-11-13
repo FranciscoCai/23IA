@@ -1,9 +1,7 @@
-using System.Collections;
-using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Hide_Thief : StateMachineBehaviour
+public class Alarm_Thief : StateMachineBehaviour
 {
     private GameObject m_Thief;
     private NavMeshAgent m_Agent;
@@ -32,25 +30,27 @@ public class Hide_Thief : StateMachineBehaviour
         {
             m_Agent.speed = animator.GetBehaviours<Search_Thief>()[0].m_InitialVelocity;
         }
-        if (!m_Agent.pathPending && m_Agent.remainingDistance < 0.1f && !isCoroutineRunning)
+        RaycastHit physicsHit;
+        if (Physics.Raycast(m_Thief.transform.position + Vector3.up, m_Thief.transform.forward, out physicsHit, 10f))
         {
-            isCoroutineRunning = true;
-            animator.GetComponent<AIData_Thief>().StartCoroutine(WaitMaintenance(animator, m_WaitTime));
+            Debug.DrawRay(m_Thief.transform.position + Vector3.up, m_Thief.transform.TransformDirection(Vector3.forward) * 10, Color.red);
+            if (physicsHit.collider.gameObject.CompareTag("Guard"))
+            {
+                animator.SetTrigger("T_Flee");
+            }
         }
-    }
-    private IEnumerator WaitMaintenance(Animator animator, float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        isCoroutineRunning = false;
-        animator.SetTrigger("T_Search");
+        else
+        {
+            Debug.DrawRay(m_Thief.transform.position + Vector3.up, m_Thief.transform.TransformDirection(Vector3.forward) * 10, Color.green);
+        }
 
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-
-    }
+    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

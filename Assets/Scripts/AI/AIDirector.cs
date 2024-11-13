@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,6 +13,9 @@ public class AIDirector : MonoBehaviour
     public GameObject[] A_thiefHidePoints;
     public GameObject[] A_thiefSearchPoints;
     public GameObject[] A_workerPosingPoints;
+
+    GameObject[] A_workers;
+    GameObject[] A_thiefs;
     private void Awake()
     {
         if (instance == null)
@@ -30,6 +34,8 @@ public class AIDirector : MonoBehaviour
         A_thiefHidePoints = GameObject.FindGameObjectsWithTag("ThiefHideP");
         A_thiefSearchPoints = GameObject.FindGameObjectsWithTag("ThiefSearchP");
         A_workerPosingPoints = GameObject.FindGameObjectsWithTag("WorkerPosingP");
+        A_workers = GameObject.FindGameObjectsWithTag("Worker");
+        A_thiefs = GameObject.FindGameObjectsWithTag("Thief");
     }
     public Transform[] GetSearchPoints()
     {
@@ -53,10 +59,24 @@ public class AIDirector : MonoBehaviour
     // Update is called once per frame
     public void AlarmEfect()
     {
-        GameObject[] worker = GameObject.FindGameObjectsWithTag("Worker");
-        foreach (GameObject worker2 in worker)
+        foreach (GameObject workers in A_workers)
         {
-            worker2.GetComponent<Animator>().SetTrigger("T_Alarm");
+            workers.GetComponent<Animator>().SetTrigger("T_Alarm");
+        }
+        foreach (GameObject thiefs in A_thiefs)
+        {
+            thiefs.GetComponent<Animator>().SetTrigger("T_Alarm");
+            thiefs.GetComponent<Animator>().SetBool("T_OnAlarm", true);
+        }
+        StartCoroutine(CdAlarm());
+    }
+    private IEnumerator CdAlarm()
+    {
+        yield return new WaitForSeconds(20f);
+        foreach (GameObject thiefs in A_thiefs)
+        {
+            thiefs.GetComponent<Animator>().SetTrigger("T_Search");
+            thiefs.GetComponent<Animator>().SetBool("T_OnAlarm", false);
         }
     }
 
