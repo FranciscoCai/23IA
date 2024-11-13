@@ -14,11 +14,12 @@ public class AIDirector : MonoBehaviour
     private GameObject[] A_thiefHidePoints;
     private GameObject[] A_thiefSearchPoints;
     private GameObject[] A_workerPosingPoints;
+    private GameObject[] A_guardPosingPoints;
 
     private GameObject[] A_workers;
     private GameObject[] A_thiefs;
     private GameObject[] A_guards;
-    private Transform A_thiefFinalPosition;
+    private Vector3 A_thiefFinalPosition;
     private void Awake()
     {
         if (instance == null)
@@ -37,11 +38,12 @@ public class AIDirector : MonoBehaviour
         A_thiefHidePoints = GameObject.FindGameObjectsWithTag("ThiefHideP");
         A_thiefSearchPoints = GameObject.FindGameObjectsWithTag("ThiefSearchP");
         A_workerPosingPoints = GameObject.FindGameObjectsWithTag("WorkerPosingP");
+        A_guardPosingPoints = GameObject.FindGameObjectsWithTag("GuardPosingP");
         A_workers = GameObject.FindGameObjectsWithTag("Worker");
         A_thiefs = GameObject.FindGameObjectsWithTag("Thief");
         A_guards = GameObject.FindGameObjectsWithTag("Guard");
     }
-    public void ThiefFinalPosition(Transform position)
+    public void ThiefFinalPosition(Vector3 position)
     {
         A_thiefFinalPosition = position;
     }
@@ -63,7 +65,15 @@ public class AIDirector : MonoBehaviour
         }
         return points;
     }
-
+    public Transform[] GetPatrolPoints()
+    {
+        Transform[] points = new Transform[6];
+        for (int i = 0; i < points.Length; i++)
+        {
+            points[i] = A_guardPosingPoints[i].GetComponent<Transform>();
+        }
+        return points;
+    }
     // Update is called once per frame
     public void AlarmEfect()
     {
@@ -91,7 +101,10 @@ public class AIDirector : MonoBehaviour
             thiefs.GetComponent<Animator>().SetBool("T_OnAlarm", false);
         }
     }
-
+    public Vector3 GuardAlarmPosition()
+    {
+        return A_thiefFinalPosition;
+    }
     public Vector3 ClosestAlarm(Vector3 position)
     {
         return ClosestPoint(position, A_groupingsPoints);

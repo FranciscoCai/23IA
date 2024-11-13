@@ -34,7 +34,7 @@ public class Posing_Worker : StateMachineBehaviour
             Debug.DrawRay(m_Worker.transform.position + Vector3.up, m_Worker.transform.TransformDirection(Vector3.forward) * 5f, Color.red);
             if (physicsHit.collider.gameObject.CompareTag("Thief"))
             {
-                AIDirector.instance.ThiefFinalPosition(physicsHit.collider.transform);
+                AIDirector.instance.ThiefFinalPosition(physicsHit.collider.transform.position);
                 animator.SetTrigger("T_Warning");
             }
         }

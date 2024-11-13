@@ -33117,7 +33117,7 @@ GameObject:
   - component: {fileID: 981213859}
   m_Layer: 0
   m_Name: Waypoint_002
-  m_TagString: Untagged
+  m_TagString: GuardPosingP
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45363,26 +45363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a2a3e0ae09e3b44da3acff8e62b8bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  A_alarmTransform:
-  - {fileID: 101396850}
-  - {fileID: 574207488}
-  - {fileID: 872240017}
-  - {fileID: 1574688952}
-  A_groupingsPoints:
-  - {fileID: 332432602}
-  - {fileID: 337027769}
-  - {fileID: 1649222996}
-  - {fileID: 1192171219}
-  - {fileID: 1307133207}
-  A_thiefHidePoints:
-  - {fileID: 1474801016}
-  - {fileID: 236685042}
-  - {fileID: 1168686831}
-  - {fileID: 2059363246}
-  - {fileID: 123461579}
-  - {fileID: 893372659}
-  A_thiefSearchPoints: []
-  A_workerPosingPoints: []
 --- !u!4 &1281901802
 Transform:
   m_ObjectHideFlags: 0
@@ -50951,7 +50931,7 @@ PrefabInstance:
     - target: {fileID: 4429647094997668050, guid: 6172e1b716cccfc4b8e6e491d4b0ab02,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 38.23
+      value: 30.74
       objectReference: {fileID: 0}
     - target: {fileID: 4429647094997668050, guid: 6172e1b716cccfc4b8e6e491d4b0ab02,
         type: 3}
@@ -50961,7 +50941,7 @@ PrefabInstance:
     - target: {fileID: 4429647094997668050, guid: 6172e1b716cccfc4b8e6e491d4b0ab02,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 31
+      value: 23.27
       objectReference: {fileID: 0}
     - target: {fileID: 4429647094997668050, guid: 6172e1b716cccfc4b8e6e491d4b0ab02,
         type: 3}
@@ -52112,7 +52092,7 @@ GameObject:
   - component: {fileID: 1455207765}
   m_Layer: 0
   m_Name: Waypoint_004
-  m_TagString: Untagged
+  m_TagString: GuardPosingP
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64616,7 +64596,7 @@ GameObject:
   - component: {fileID: 1790781252}
   m_Layer: 0
   m_Name: Waypoint_005
-  m_TagString: Untagged
+  m_TagString: GuardPosingP
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71044,7 +71024,7 @@ GameObject:
   - component: {fileID: 1983288940}
   m_Layer: 0
   m_Name: Waypoint_003
-  m_TagString: Untagged
+  m_TagString: GuardPosingP
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73329,7 +73309,7 @@ GameObject:
   - component: {fileID: 2061473178}
   m_Layer: 0
   m_Name: Waypoint_001
-  m_TagString: Untagged
+  m_TagString: GuardPosingP
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75061,7 +75041,7 @@ GameObject:
   - component: {fileID: 2128106596}
   m_Layer: 0
   m_Name: Waypoint
-  m_TagString: Untagged
+  m_TagString: GuardPosingP
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
