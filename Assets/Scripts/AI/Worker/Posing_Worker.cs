@@ -14,7 +14,10 @@ public class Posing_Worker : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_Worker = animator.gameObject;
-        m_Points = AIDirector.instance.GetPosingPoints();
+        if (m_Points.Length == 0)
+        {
+            m_Points = AIDirector.instance.GetPosingPoints();
+        }
         m_Agent = m_Worker.GetComponent<NavMeshAgent>();
         m_Agent.autoBraking = false;
         m_Agent.destination = m_Points[m_DestPoint].position;

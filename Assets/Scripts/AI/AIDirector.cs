@@ -44,6 +44,11 @@ public class AIDirector : MonoBehaviour
         A_workers = GameObject.FindGameObjectsWithTag("Worker");
         A_thiefs = GameObject.FindGameObjectsWithTag("Thief");
         A_guards = GameObject.FindGameObjectsWithTag("Guard");
+        Debug.Log(A_workers.Length);
+        Debug.Log(A_thiefs.Length);
+        Debug.Log(A_guards.Length);
+        Debug.Log(A_guards.Length+ A_thiefs.Length+ A_workers.Length);
+
     }
     public void ThiefFinalPosition(Vector3 position)
     {

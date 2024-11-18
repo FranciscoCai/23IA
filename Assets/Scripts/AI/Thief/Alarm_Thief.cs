@@ -7,7 +7,6 @@ public class Alarm_Thief : StateMachineBehaviour
     private NavMeshAgent m_Agent;
 
     [SerializeField] private float m_WaitTime;
-    private bool isCoroutineRunning = false;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -36,6 +35,7 @@ public class Alarm_Thief : StateMachineBehaviour
             Debug.DrawRay(m_Thief.transform.position + Vector3.up, m_Thief.transform.TransformDirection(Vector3.forward) * 10, Color.red);
             if (physicsHit.collider.gameObject.CompareTag("Guard"))
             {
+                animator.GetBehaviours<Search_Thief>()[0].m_ViewGuard = physicsHit.collider.gameObject;
                 animator.SetTrigger("T_Flee");
             }
         }

@@ -17,7 +17,10 @@ public class Patrol_Guard : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         m_Guard = animator.gameObject;
-        m_Points = AIDirector.instance.GetPatrolPoints();
+        if (m_Points.Length == 0)
+        {
+            m_Points = AIDirector.instance.GetPatrolPoints();
+        }
         m_Agent = m_Guard.GetComponent<NavMeshAgent>();
         m_Agent.autoBraking = false;
         m_Agent.destination = m_Points[m_DestPoint].position;
