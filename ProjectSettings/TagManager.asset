@@ -13,7 +13,7 @@ TagManager:
   - ThiefHideP
   - ThiefSearchP
   - WorkerPosingP
-  - GuardPosingP
+  - GuardPatrolP
   layers:
   - Default
   - TransparentFX

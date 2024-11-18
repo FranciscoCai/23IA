@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,7 +16,7 @@ public class AIDirector : MonoBehaviour
     private GameObject[] A_thiefHidePoints;
     private GameObject[] A_thiefSearchPoints;
     private GameObject[] A_workerPosingPoints;
-    private GameObject[] A_guardPosingPoints;
+    private GameObject[] A_guardPatrolPoints;
 
     private GameObject[] A_workers;
     private GameObject[] A_thiefs;
@@ -38,7 +40,7 @@ public class AIDirector : MonoBehaviour
         A_thiefHidePoints = GameObject.FindGameObjectsWithTag("ThiefHideP");
         A_thiefSearchPoints = GameObject.FindGameObjectsWithTag("ThiefSearchP");
         A_workerPosingPoints = GameObject.FindGameObjectsWithTag("WorkerPosingP");
-        A_guardPosingPoints = GameObject.FindGameObjectsWithTag("GuardPosingP");
+        A_guardPatrolPoints = GameObject.FindGameObjectsWithTag("GuardPatrolP");
         A_workers = GameObject.FindGameObjectsWithTag("Worker");
         A_thiefs = GameObject.FindGameObjectsWithTag("Thief");
         A_guards = GameObject.FindGameObjectsWithTag("Guard");
@@ -50,27 +52,36 @@ public class AIDirector : MonoBehaviour
     public Transform[] GetSearchPoints()
     {
         Transform[] points = new Transform[6];
+        List<GameObject> listPoint = A_thiefSearchPoints.ToList<GameObject>();
         for (int i = 0; i < points.Length; i++)
         {
-            points[i] = A_thiefSearchPoints[i].GetComponent<Transform>();
+            int listNum = Random.Range(0, listPoint.Count - 1);
+            points[i] = listPoint[listNum].transform;
+            listPoint.Remove(listPoint[listNum]);
         }
         return points;
     }
     public Transform[] GetPosingPoints()
     {
         Transform[] points = new Transform[6];
+        List<GameObject> listPoint = A_workerPosingPoints.ToList<GameObject>();
         for (int i = 0; i < points.Length; i++)
         {
-            points[i] = A_workerPosingPoints[i].GetComponent<Transform>();
+            int listNum = Random.Range(0, listPoint.Count - 1);
+            points[i] = listPoint[listNum].transform;
+            listPoint.Remove(listPoint[listNum]);
         }
         return points;
     }
     public Transform[] GetPatrolPoints()
     {
         Transform[] points = new Transform[6];
+        List<GameObject> listPoint = A_guardPatrolPoints.ToList<GameObject>();
         for (int i = 0; i < points.Length; i++)
         {
-            points[i] = A_guardPosingPoints[i].GetComponent<Transform>();
+            int listNum = Random.Range(0, listPoint.Count - 1);
+            points[i] = listPoint[listNum].transform;
+            listPoint.Remove(listPoint[listNum]);
         }
         return points;
     }
